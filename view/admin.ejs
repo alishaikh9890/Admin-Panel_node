@@ -1,0 +1,133 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <div class="container d-flex">
+
+        <div class="side-bar">
+            <a href="/dashboard" class="side-one d-flex justify-between p-4 border">
+                <i class="fa-solid fa-user-tie"></i>  <h2>Admitator</h2>
+            </a>
+            <div class="side-one d-flex justify-between p-4 border">
+                <i class="fa-solid fa-house"></i>  <a>Home</a>
+            </div>
+            <div class="side-one d-flex justify-between p-4 border">
+                <i class="fa-solid fa-chart-simple"></i>  <a>Analytic</a>
+            </div>
+            <div class="side-one d-flex justify-between p-4 border">
+                <i class="fa-solid fa-calendar-days"></i>  <a>Calender</a>
+            </div>
+            <div class="side-one d-flex justify-between p-4 border">
+                <i class="fa-brands fa-rocketchat"></i>  <a>Chat</a>
+            </div>
+            <div class="side-one d-flex justify-between p-4 border">
+                <i class="fa-solid fa-map"></i>  <a>map</a>
+            </div>
+            <div class="side-one d-flex justify-between p-4 border">
+                <i class="fa-solid fa-table"></i>  <a>table</a>
+            </div>
+
+
+        </div>
+      
+        <div class="main">
+           <div class="nav border d-flex justify-between pe-30 align-items-center">
+            <button class="admin-butn"><i class="fa-solid fa-bars"></i></button>
+            <button class="admin-butn2"><a href="/addUser">Add New</a></button>
+           </div>
+
+           <div class="sub-main d-flex">
+          
+           </div>
+
+           <div class="sub-main d-flex">
+                <div class="sub-main-one">
+                    <div class="admin-items">
+                      
+                    </div>
+
+                </div>
+                <div class="sub-main-one">
+                    <div class="admin-items">
+           
+            <form method="post" action="/addUser" enctype="multipart/form-data">
+
+                <table border="0" class="table" width="50%" align="right">
+                    <tr>
+                        <th>username</th>
+                        <td><input type="text"  name="username"></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td><input type="email"  name="email"></td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td><input type="number"  name="phone"></td>
+                    </tr>
+                    <tr>
+                        <th>Pic</th>
+                        <td><input type="file"  name="pic"/></td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td><input type="text"  name="password"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <button type="submit">submit</button>
+                        </td>
+                    </tr>
+                </table>
+                
+                </form>
+
+
+
+
+                    </div>
+
+                </div>
+                <div class="sub-main-one">
+                    <div class="admin-items">
+
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="sub-main-one">
+                    <div class="admin-items">
+                        
+                    </div>
+
+                </div>
+
+           </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+
+    <script>
+
+        $(".admin-butn").click(function(){
+            $(".side-bar").toggleClass("hide-side");
+            $(".side-one a").toggle()
+        })
+    </script>
+</body>
+</html>

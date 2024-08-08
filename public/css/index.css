@@ -1,0 +1,173 @@
+*{
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --border- : gainsboro;
+}
+
+.p-4{
+    padding: 10px;
+}
+.pe-30{
+    padding-right: 30px;
+}
+
+
+
+
+.container{
+    width: 100%;
+    background-color: aliceblue;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.justify-between{
+
+    justify-content: space-between;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+.admin-butn2 a{
+    padding: 20px;
+    font-weight: 700;
+}
+.side-bar{
+width: 200px;
+height: 100vh;
+background-color: white;
+border: 1px solid var(--border-);
+overflow: hidden;
+transition: width 0.5s;
+}
+
+.side-one:hover{
+    background-color: gainsboro;
+    cursor: pointer;
+}
+
+
+.border{
+    border: 1px solid var(--border-);
+}
+
+.admin-butn{
+    width: 50px;
+  transform: translateX(20px);
+
+}
+
+.admin-butn >i{
+    font-size:25px
+}
+
+.hide-side{
+    width: 50px;
+    transition: width 0.5s;
+}
+
+.main{
+    width: 100%;
+}
+.nav{
+    height: 70px;
+    background-color: white;
+    width: 100%;
+}
+
+.sub-main{
+    border:1px solid red;
+   
+    flex-wrap: wrap;
+}
+
+.sub-main-one{
+
+    width: 50%;
+    height: 400px;
+    padding: 20px;
+}
+
+.sub-main-user{
+    width:100%;
+    padding: 20px;
+}
+
+.admin-items{
+    border-radius: 20px;
+    border: 1px solid var(--border-);
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+}
+
+@media(max-width:991px){
+    .sub-main-one{
+        width: 100%;
+    }
+
+}
+
+
+.fonts{
+    font-size: calc(10vw - 10px);
+}
+
+
+.admin-items-users{
+
+    margin: 10px;
+    display: flex;
+    border-radius: 10px ;
+    background-color:azure;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.admin-items-users div{
+    width: 100%;
+    padding: 5px 20px;
+    font-family:cursive;
+    letter-spacing: 2px;
+    max-width: 220px;
+    min-width: 150px;
+    display: flex;
+    gap: 40px;
+    
+   
+
+}
+
+.table{
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px black;
+    padding: 20px;
+}
+.table th{
+    text-align: start;
+    
+}
+
+.table td input{
+ padding: 6px 10px;
+}
+
+.table td{
+    padding: 8px 0px;
+}
+
+.table button{
+    padding:6px 10px;
+    box-shadow: 1px 1px 5px green;
+    color: white;
+    background-color: green;
+}
