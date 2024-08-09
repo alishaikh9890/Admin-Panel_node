@@ -6,7 +6,6 @@ let adminSchema = new mongoose.Schema({
     phone : Number,
     pic : String,
     password : String,
-
 });
 
 

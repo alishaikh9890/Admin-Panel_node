@@ -1,5 +1,7 @@
 const admin = require("../models/admin.schema");
 
+const fs = require("fs")
+
 const home = (req, res)=>{
     res.send("Alishan")
 }
@@ -11,8 +13,17 @@ const addUser = async(req, res) =>{
         await admin.findByIdAndUpdate(req.body.editId, req.body)
     }
     else {
-        console.log(req.body)
-        // await admin.create(req.body);        
+
+        let { username, email,phone, password, pic} = req.body;
+        pic = req.file.path
+        console.log(req.file)
+        await admin.create({
+            username : username,
+            email : email,
+            phone : phone,
+            password : password,
+            pic : pic
+        });        
     }
     res.redirect("dashboard")
 
@@ -33,6 +44,10 @@ const dash = async (req, res) =>{
 
 const delUser = async(req,res) => {
     let {id}  = req.params;
+    await admin.findById(id).then((singleRecord) => {
+        fs.unlinkSync(singleRecord.pic)
+    })
+
     await admin.findByIdAndDelete(id);
     res.redirect("back")
 }

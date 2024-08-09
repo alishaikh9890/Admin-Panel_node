@@ -143,8 +143,12 @@ justify-content: space-between;
     display: flex;
     gap: 40px;
     
-   
+}
 
+
+.username > img{
+    width:30px;
+    border-radius: 50%;
 }
 
 .table{
