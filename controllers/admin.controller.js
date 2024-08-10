@@ -7,14 +7,40 @@ const home = (req, res)=>{
 }
 
 const addUser = async(req, res) =>{
-    console.log(req.body.editId)
 
-    if(req.body.editId){
-        await admin.findByIdAndUpdate(req.body.editId, req.body)
+    let editId = req.body.editId;
+
+    let { username, email,phone, password, pic} = req.body;
+    if(editId){
+        if(req.file){
+            await admin.findById(editId).then((editRecord) =>{
+                fs.unlinkSync(editRecord.pic);
+                let img = req.file.path;
+                         admin.findByIdAndUpdate(editId,{
+                                username : username,
+                                email : email,
+                                phone : phone,
+                                password : password,
+                                pic : img,
+                            })
+            })
+            
+        }
+        else{
+            await admin.findById(editId).then((old) =>{
+                 admin.findByIdAndUpdate(editId, {
+                    username: username,
+                    email : email,
+                    phone : phone,
+                    pic  : old.pic,
+                    password : password
+                });
+            })
+
+        }
     }
     else {
 
-        let { username, email,phone, password, pic} = req.body;
         pic = req.file.path
         console.log(req.file)
         await admin.create({
@@ -56,10 +82,9 @@ const editUser = async(req, res) => {
     let {id} = req.params;
     await admin.findById(id).then((item) =>{
         res.render("edit", {
-            item
+        item
         })
     });
 }
 
 module.exports = {home, addUser, getAdduser, dash, delUser, editUser};
-
