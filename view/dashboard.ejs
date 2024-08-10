@@ -13,26 +13,26 @@
 
         <div class="side-bar">
             <div class="side-one d-flex justify-between p-4 border">
-                <i class="fa-solid fa-user-tie"></i>  <h2>Admitator</h2>
+                <i><img src="/img/racer.png" alt=""></i>  <a><h2>Admitator</h2></a>
          
             </div>
             <div class="side-one d-flex justify-between p-4 border">
-                <i class="fa-solid fa-house"></i>  <a>Home</a>
+                <i><img src="/img/3d-house.png" alt=""></i>  <a>Home</a>
             </div>
             <div class="side-one d-flex justify-between p-4 border">
-                <i class="fa-solid fa-chart-simple"></i>  <a>Analytic</a>
+                <i><img src="/img/bar-chart.png" alt=""></i>  <a>Analytic</a>
             </div>
             <div class="side-one d-flex justify-between p-4 border">
-                <i class="fa-solid fa-calendar-days"></i>  <a>Calender</a>
+                <i><img src="/img/3d-calendar.png" alt=""></i>  <a>Calender</a>
             </div>
             <div class="side-one d-flex justify-between p-4 border">
-                <i class="fa-brands fa-rocketchat"></i>  <a>Chat</a>
+                <i><img src="/img/discussion.png" alt=""></i>  <a>Chat</a>
             </div>
             <div class="side-one d-flex justify-between p-4 border">
-                <i class="fa-solid fa-map"></i>  <a>map</a>
+                <i><img src="/img/3d-map.png" alt=""></i>  <a>map</a>
             </div>
             <div class="side-one d-flex justify-between p-4 border">
-                <i class="fa-solid fa-table"></i>  <a>table</a>
+                <i><img src="/img/grid.png" alt=""></i>  <a>table</a>
             </div>
 
 
@@ -40,8 +40,8 @@
       
         <div class="main">
            <div class="nav border d-flex justify-between pe-30 align-items-center">
-            <button class="admin-butn"><i class="fa-solid fa-bars"></i></button>
-            <button class="admin-butn2"><a href="/addUser">Add New</a></button>
+            <button class="admin-butn"><img src="/img/menu.png" alt=""></button>
+            <button class="admin-butn2"><a href="/addUser"><i class="fa-solid fa-user-plus"></i>Add New</a></button>
            </div>
 
            <div class="sub-main d-flex">
@@ -55,11 +55,11 @@
 
                         <div class="admin-items-users">
                             <div class="username"><img src="<%=user.pic %>" alt=""></div>
-                            <div class="username"><%= user.username %></div>
-                            <div class="username"><%= user.email %></div>
-                            <div class="username"><%= user.password %></div>
-                            <div class="username"><%= user.phone %></div>
-                            <div class="username"><button><a href="/editUser/<%= user.id %>">✏️</a></button><button><a href="/delUser/<%= user.id %>">❌</a></button></div>
+                            <div class="username w2"><%= user.username %></div>
+                            <div class="username w1"><%= user.email %></div>
+                            <div class="username w1"><%= user.password %></div>
+                            <div class="username w1"><%= user.phone %></div>
+                            <div class="username w1"><a href="/editUser/<%= user.id %>"><img src="/img/3d-pen.png" alt=""></a><a href="/delUser/<%= user.id %>"><img src="/img/trash-bin.png" alt=""></a></div>
                         </div>
 
                         <%

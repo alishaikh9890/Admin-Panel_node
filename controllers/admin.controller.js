@@ -13,50 +13,56 @@ const addUser = async(req, res) =>{
     let { username, email,phone, password, pic} = req.body;
     if(editId){
         if(req.file){
+
+          
             await admin.findById(editId).then((editRecord) =>{
-                fs.unlinkSync(editRecord.pic);
-                let img = req.file.path;
-                         admin.findByIdAndUpdate(editId,{
+                fs.unlinkSync(editRecord.pic);   
+            })
+             pic = req.file.path;
+                      await admin.findByIdAndUpdate(editId, {
                                 username : username,
                                 email : email,
                                 phone : phone,
                                 password : password,
-                                pic : img,
-                            })
-            })
-            
+                                pic : pic,
+                            }).then(() => {
+                                res.redirect("dashboard")
+                        });     
         }
+
         else{
             await admin.findById(editId).then((old) =>{
                  admin.findByIdAndUpdate(editId, {
                     username: username,
                     email : email,
                     phone : phone,
-                    pic  : old.pic,
-                    password : password
-                });
+                    password : password,
+                    pic  : old.pic
+                }).then(() => {
+                    res.redirect("dashboard")
+            });     
             })
-
         }
     }
     else {
-
+        let pic = "";
         pic = req.file.path
-        console.log(req.file)
         await admin.create({
             username : username,
             email : email,
             phone : phone,
             password : password,
             pic : pic
+        }).then(() => {
+                res.redirect("dashboard")
         });        
     }
-    res.redirect("dashboard")
+
 
 }
 
 const getAdduser = (req, res) =>{
-     res.render("admin")
+     res.render("admin");
 }
 
 const dash = async (req, res) =>{

@@ -37,9 +37,29 @@
 }
 
 .admin-butn2 a{
-    padding: 20px;
+ 
     font-weight: 700;
+    background-color: green;
+    height: 100%;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+.admin-butn2 a:hover{
+    box-shadow: green 0px 5px 15px;
+    background-color: white;
+    color: green;
+}
+
+.admin-butn2{
+    border: none;
+    background: transparent;
+}
+
+
 .side-bar{
 width: 200px;
 height: 100vh;
@@ -47,12 +67,38 @@ background-color: white;
 border: 1px solid var(--border-);
 overflow: hidden;
 transition: width 0.5s;
+padding: 0px 5px;
+
+position: sticky;
+top: 0px;
+min-width: 50px;
+
+
+}
+
+@media (max-width:575px){
+    .side-one a{
+        display: none;
+    }
+}
+
+.side-one{
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: cursive;
+    font-weight: 700;
+    transition: all 0.5s;
+
+    
+}
+.side-one > i > img{
+    width: 30px;
 }
 
 .side-one:hover{
-    background-color: gainsboro;
+
     cursor: pointer;
-}
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;}
 
 
 .border{
@@ -62,6 +108,17 @@ transition: width 0.5s;
 .admin-butn{
     width: 50px;
   transform: translateX(20px);
+  padding: 0px;
+  border: none;
+  background: transparent;
+
+}
+
+.admin-butn img{
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
 }
 
@@ -76,11 +133,14 @@ transition: width 0.5s;
 
 .main{
     width: 100%;
+   
 }
 .nav{
     height: 70px;
     background-color: white;
     width: 100%;
+    position: sticky;
+    top: 0px;
 }
 
 .sub-main{
@@ -151,6 +211,15 @@ justify-content: start;
     width: 10%;
 }
 
+@media (max-width:991px){
+    .w1{
+        width: 100% !important;
+    }
+    .w2{
+        width: 80% !important;
+    }
+}
+
 
 .username > img{
     width:30px;
@@ -180,4 +249,22 @@ justify-content: start;
     box-shadow: 1px 1px 5px green;
     color: white;
     background-color: green;
+}
+
+.username > a{
+ padding: 3px 0px 0px 3px;
+}
+.username > a:hover{
+    background-color: white;
+    border-radius: 10px;
+   
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.username  > a > img{
+    width: 30px;
+}
+
+.username > a:first-child img{
+    padding: 3px;
 }
