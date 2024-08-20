@@ -1,4 +1,7 @@
+
+
 const valid = (req, res, next) => {
+
     let {username, email, password, phone, pic} = req.body;
 
     if(username && email && password && phone){
@@ -10,4 +13,10 @@ const valid = (req, res, next) => {
     }
 }
 
-module.exports = valid;
+
+const isAuth = (req, res, next) => {
+    console.log(req.cookies);
+    next();
+}
+
+module.exports = {valid, isAuth};

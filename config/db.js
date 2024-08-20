@@ -1,7 +1,12 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
+
+let url = process.env.DB_URL;
 
 const db = async() =>{
-await mongoose.connect("mongodb+srv://rwbn1alishanas:adminpanel@cluster0.uradcvo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+await mongoose.connect(
+    url
+);
 
 console.log("connected to db")
 

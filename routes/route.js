@@ -1,6 +1,7 @@
 const express = require("express");
-const {home, addUser, getAdduser, dash, delUser, editUser} = require("../controllers/admin.controller");
-const valid = require("../middlewares/admin.maddlewares");
+const {home, addUser, getAdduser, dash, delUser, editUser, signup, signing, Local} = require("../controllers/admin.controller");
+const {valid, isAuth} = require("../middlewares/admin.maddlewares");
+const passport = require("passport")
 
 const router = express.Router();
 
@@ -23,7 +24,7 @@ const ImageUpload = multer({storage : fileupload}).single("pic");
 
 // file upload end
 
-router.get("/", home);
+router.get("/",isAuth, home);
 
 router.post("/addUser" , ImageUpload, valid, addUser);
 
@@ -34,5 +35,11 @@ router.get("/dashboard", dash);
 router.get("/delUser/:id", delUser);
 
 router.get("/editUser/:id", editUser);
+
+router.get("/signup", signup)
+
+router.post("/signing", signing)
+
+router.post("/local",passport.authenticate("local"),Local )
 
 module.exports = router;
