@@ -8,6 +8,7 @@ const router = express.Router();
 
 
 const multer = require("multer");
+const LocalAuth = require("../middlewares/LocalAuth");
 
 // file upload start
 
@@ -38,7 +39,7 @@ router.get("/editUser/:id", editUser);
 
 router.get("/signup", signup)
 
-router.post("/signing", signing)
+router.post("/signing",LocalAuth, signing)
 
 router.post("/local",passport.authenticate("local"),Local )
 
