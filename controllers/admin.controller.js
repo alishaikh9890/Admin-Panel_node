@@ -23,7 +23,7 @@ const addUser = async(req, res) =>{
                                 username : username,
                                 email : email,
                                 phone : phone,
-                                password : password,
+                                password : password, 
                                 pic : pic,
                             }).then(() => {
                                 res.redirect("dashboard")
@@ -74,15 +74,24 @@ const dash = async (req, res) =>{
    })
 }
 
+
 const delUser = async(req,res) => {
-    let {id}  = req.params;
+    const {id}  = req.params;
+    
     await admin.findById(id).then((singleRecord) => {
         fs.unlinkSync(singleRecord.pic)
     })
 
-    await admin.findByIdAndDelete(id);
-    res.redirect("back")
+
+    await admin.findByIdAndDelete(id).then((data) => {
+        res.redirect("back")
+    })
+    
 }
+
+
+
+
 
 const editUser = async(req, res) => {
     let {id} = req.params;

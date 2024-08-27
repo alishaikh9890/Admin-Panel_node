@@ -12,7 +12,7 @@ const multer = require("multer");
 
 const fileupload = multer.diskStorage({
     destination : (req, res, cb) => {
-        cb(null, "uploads/")
+        cb(null, "uploads")
     },
     filename : (req, file, cb) => {
         cb(null, file.originalname)
@@ -21,11 +21,12 @@ const fileupload = multer.diskStorage({
 
 const ImageUpload = multer({storage : fileupload}).single("pic");
 
-// file upload end
+// file upload end 
 
 router.get("/", home);
 
 router.post("/addUser" , ImageUpload, valid, addUser);
+
 
 router.get("/addUser", getAdduser);
 

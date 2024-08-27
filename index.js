@@ -20,7 +20,7 @@ app.set("views",__dirname+"/view")
 
 app.use(express.static(__dirname+"/public"))
 
-app.use("/uploads", express.static(path.join(__dirname, "uploads")))
+app.use("/uploads", express.static(path.join(__dirname, "uploads/")))
 
 app.listen(port, (err)=>{
     if(err){
