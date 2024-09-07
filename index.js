@@ -8,6 +8,7 @@ const cookies = require("cookie-parser");
 const session = require("express-session");
 const passport = require("passport")
 const LocalAuth = require("./middlewares/LocalAuth");
+const u_router = require("./routes/user_route");
 LocalAuth(passport);
 
 const port = 9050;
@@ -26,6 +27,8 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.use("/",router)
+
+app.use("/user", u_router)
 
 app.set("view engine", "ejs");
 
