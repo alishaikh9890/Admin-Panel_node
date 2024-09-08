@@ -2,8 +2,39 @@ const admin = require("../models/admin.schema");
 
 const fs = require("fs")
 
-const home = (req, res)=>{
-    res.send("Alishan")
+const home = async (req, res)=>{
+
+    let data = await admin.find()
+    
+    res.cookie("name", "user").send(data); 
+ 
+}
+
+const signup = (req, res) => {
+    res.render("signup");
+}
+
+const signing = async (req, res) => {
+    let {email, password} = req.body
+    // res.cookie("name", data.username).send(data)
+    // res.redirect("signup");
+
+    let data = await admin.findOne({email:email})
+        if(!data){
+            return res.send("invalid email")
+        }
+
+        if(data.password != password){
+            return res.send("wrong password")
+        }
+
+        console.log(data);
+        return res.send("logged in")
+
+}
+
+const Local = (req, res) =>{
+    res.send("logged in")
 }
 
 const addUser = async(req, res) =>{
@@ -62,6 +93,7 @@ const addUser = async(req, res) =>{
 }
 
 const getAdduser = (req, res) =>{
+    console.log(req.cookies)
      res.render("admin");
 }
 
@@ -102,4 +134,4 @@ const editUser = async(req, res) => {
     });
 }
 
-module.exports = {home, addUser, getAdduser, dash, delUser, editUser};
+module.exports = {home, addUser, getAdduser, dash, delUser, editUser, signup, signing, Local};

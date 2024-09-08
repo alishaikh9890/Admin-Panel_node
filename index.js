@@ -3,16 +3,32 @@ const path = require("path");
 
 const express = require("express");
 const router = require("./routes/route");
-const db = require("./config/db")
+const db = require("./config/db");
+const cookies = require("cookie-parser");
+const session = require("express-session");
+const passport = require("passport")
+const LocalAuth = require("./middlewares/LocalAuth");
+const u_router = require("./routes/user_route");
+LocalAuth(passport);
+
 const port = 9050;
   
 const app = express();
+
+app.use(passport.initialize());
+app.use(passport.session())
+
+app.use(cookies())
+
+app.use(session({secret:"private-key"}));
 
 app.use(express.urlencoded({extended:true}))
 
 app.use(express.json())
 
 app.use("/",router)
+
+app.use("/user", u_router)
 
 app.set("view engine", "ejs");
 
