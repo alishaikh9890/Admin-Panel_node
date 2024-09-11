@@ -88,8 +88,6 @@ const addUser = async(req, res) =>{
                 res.redirect("dashboard")
         });        
     }
-
-
 }
 
 const getAdduser = (req, res) =>{

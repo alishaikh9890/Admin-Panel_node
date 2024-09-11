@@ -24,4 +24,4 @@ const LocalAuth = (passport) => {
     })
 }
 
-module.exports = LocalAuth;
+ module.exports = LocalAuth;
