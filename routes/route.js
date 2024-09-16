@@ -8,6 +8,7 @@ const router = express.Router();
 
 
 const multer = require("multer");
+const access = require("../middlewares/accessAuth");
 // const LocalAuth = require("../middlewares/LocalAuth");
 
 // file upload start
@@ -25,10 +26,9 @@ const ImageUpload = multer({storage : fileupload}).single("pic");
 
 // file upload end 
 
-router.get("/",isAuth, home);
+router.get("/", isAuth, home);
 
 router.post("/addUser" , ImageUpload, valid, addUser);
-
 
 router.get("/addUser", getAdduser);
 
@@ -41,7 +41,7 @@ router.get("/editUser/:id", editUser);
 router.get("/signup", signup)
 
 // router.post("/signing",LocalAuth, signing)
-router.post("/signing", signing)
+// router.post("/signing", signing)
 
 // router.post("/local",passport.authenticate("local"),Local )
 
