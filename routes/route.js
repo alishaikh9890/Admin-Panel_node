@@ -1,14 +1,14 @@
 const express = require("express");
 const {home, addUser, getAdduser, dash, delUser, editUser, signup, signing, Local} = require("../controllers/admin.controller");
 const {valid, isAuth} = require("../middlewares/admin.maddlewares");
-const passport = require("passport")
+// const passport = require("passport")
 
 const router = express.Router();
 
 
 
 const multer = require("multer");
-const LocalAuth = require("../middlewares/LocalAuth");
+// const LocalAuth = require("../middlewares/LocalAuth");
 
 // file upload start
 
@@ -40,8 +40,9 @@ router.get("/editUser/:id", editUser);
 
 router.get("/signup", signup)
 
-router.post("/signing",LocalAuth, signing)
+// router.post("/signing",LocalAuth, signing)
+router.post("/signing", signing)
 
-router.post("/local",passport.authenticate("local"),Local )
+// router.post("/local",passport.authenticate("local"),Local )
 
 module.exports = router;

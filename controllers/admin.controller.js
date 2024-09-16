@@ -1,5 +1,6 @@
 const admin = require("../models/admin.schema");
 
+
 const fs = require("fs")
 
 const home = async (req, res)=>{
@@ -25,17 +26,19 @@ const signing = async (req, res) => {
         }
 
         if(data.password != password){
-            return res.send("wrong password")
+            // return res.send("wrong password")
+            return res.redirect("signup")
         }
 
         console.log(data);
-        return res.send("logged in")
+        // return res.send("logged in")
+        return res.redirect("dashboard")
 
 }
 
-const Local = (req, res) =>{
-    res.send("logged in")
-}
+// const Local = (req, res) =>{
+//     res.send("logged in")
+// }
 
 const addUser = async(req, res) =>{
 
@@ -116,7 +119,6 @@ const delUser = async(req,res) => {
     await admin.findByIdAndDelete(id).then((data) => {
         res.redirect("back")
     })
-    
 }
 
 
@@ -132,4 +134,6 @@ const editUser = async(req, res) => {
     });
 }
 
-module.exports = {home, addUser, getAdduser, dash, delUser, editUser, signup, signing, Local};
+module.exports = {home, addUser, getAdduser, dash, delUser, editUser, signup, signing,
+    //  Local
+    };

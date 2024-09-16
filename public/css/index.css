@@ -196,7 +196,7 @@ justify-content: start;
 .admin-items-users div{
     width:  20%;
     padding: 5px 15px;
-    font-family:cursive;
+    font-family:roboto;
     letter-spacing: 2px;
 
     display: flex;
