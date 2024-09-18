@@ -12,24 +12,27 @@ const signupData = async (req, res) => {
 
 
 
-const signing = async (req, res) => {
-    let {email, password} = req.body
-    // res.cookie("name", data.username).send(data)
-    // res.redirect("signup");
+const signing = (req, res) => {
 
-    let data = await user.findOne({email:email})
-        if(!data){
-            return res.redirect("back")
-        }
+    res.redirect("/dashboard");
+    // let {email, password} = req.body
+    // // res.cookie("name", data.username).send(data)
+    // // res.redirect("signup");
 
-        if(data.password != password){
-            // return res.send("wrong password")
-            return res.redirect("back")
-        }
+    // let data = await user.findOne({email:email})
+    //     if(!data){
+    //         return res.redirect("back")
+    //     }
 
-        console.log(data);
-        // return res.send("logged in")
-        return res.redirect("../dashboard")
+    //     if(data.password != password){
+    //         // return res.send("wrong password")
+    //         return res.redirect("back")
+    //     }
+
+    //     console.log(data);
+    //     // return res.send("logged in")
+    //     // return res.redirect("../dashboard")
+
 
 }
 
