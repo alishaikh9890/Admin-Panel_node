@@ -24,7 +24,7 @@ const fileupload = multer.diskStorage({
 
 const ImageUpload = multer({storage : fileupload}).single("pic");
 
-// file upload end 
+// file upload end
 
 router.get("/", isAuth, home);
 
