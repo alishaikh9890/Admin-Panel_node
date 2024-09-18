@@ -11,8 +11,8 @@ const home = async (req, res)=>{
  
 }
 
-const signup = (req, res) => {
-    res.render("signup");
+const login = (req, res) => {
+    res.render("login");
 }
 
 const signing = async (req, res) => {
@@ -134,6 +134,6 @@ const editUser = async(req, res) => {
     });
 }
 
-module.exports = {home, addUser, getAdduser, dash, delUser, editUser, signup, signing,
+module.exports = {home, addUser, getAdduser, dash, delUser, editUser, login, signing,
     //  Local
     };

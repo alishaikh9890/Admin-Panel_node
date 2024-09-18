@@ -32,6 +32,8 @@ app.set("views",__dirname+"/view")
 app.use(express.static(__dirname+"/public"))
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads/")))
+app.use("/css", express.static(path.join(__dirname, "/node_modules/bootstrap/dist/css")))
+app.use("/js", express.static(path.join(__dirname, "/node_modules/bootstrap/dist/js")))
 
 app.listen(port, (err)=>{
     if(err){

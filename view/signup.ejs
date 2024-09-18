@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
-
 <body>
-  <div class="signup-container">
-    <form class="signup-form" action="/user/signing" method="post">
-      <h2>Sign Up</h2>
-      <!-- <input type="text" placeholder="Username" required name="username"> -->
-      <input type="text" placeholder="username" required name="username">
-      <input type="password" placeholder="Password" required name="password">
-      <!-- <input type="number" placeholder="Number" required name="number"> -->
-      <button type="submit">Sign Up</button>
+    
+<div class="row border p-5">
+    <form action="/user/signup" method="post">
+        <input class="font-control"  placeholder="Username" id="username"/>
+        <label for="username" class="form-label"></label>
+        <br/>
+        <br/>
+        <input class="font-control"  placeholder="Username" id="username"/>
+        <label for="username" class="form-label"></label>
+        <br/>
+        <br/>
+        <input class="font-control"  placeholder="Username" id="username"/>
+        <label for="username" class="form-label"></label>
+        <br/>
+        <br/>
     </form>
-  </div>
-</body>
+</div>
 
+</body>
 </html>
