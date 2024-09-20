@@ -30,10 +30,10 @@ const signing = async (req, res) => {
             return res.redirect("signup")
         }
 
+
         console.log(data);
         // return res.send("logged in")
         return res.redirect("dashboard")
-
 }
 
 // const Local = (req, res) =>{
@@ -115,14 +115,10 @@ const delUser = async(req,res) => {
         fs.unlinkSync(singleRecord.pic)
     })
 
-
     await admin.findByIdAndDelete(id).then((data) => {
         res.redirect("back")
     })
 }
-
-
-
 
 
 const editUser = async(req, res) => {

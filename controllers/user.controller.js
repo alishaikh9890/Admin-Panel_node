@@ -9,13 +9,11 @@ const userData = async (req, res) =>{
 const signupData = async (req, res) => {
     let s_data = await user.create(req.body);
     res.send(s_data)
-  
 }
 
 const signup = (req, res) =>{
     res.render("signup")
 }
-
 
 
 const signing = (req, res) => {
@@ -56,4 +54,27 @@ const logout = (req, res) =>{
   });
 }
 
-module.exports = {userData, signupData, signing, profile, logout, signup}
+const forget = (req, res) =>{
+    res.render("forget")
+}
+
+const reset = async (req, res) => {
+    let {email, password, newpassword} = req.body;
+
+    let resetdata = await user.findOne({email: email});
+
+    if(!resetdata){
+        res.send("Email not valid")
+    }
+    else if(resetdata.password != password){
+        res.send("password is invalide")
+    }
+    else{
+           await user.findByIdAndUpdate(resetdata.id, {password: newpassword})
+    res.redirect("/login")
+    }
+ 
+   
+}
+
+module.exports = {userData, signupData, signing, profile, logout, signup, forget,reset}

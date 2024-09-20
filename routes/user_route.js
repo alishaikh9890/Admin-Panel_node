@@ -1,5 +1,5 @@
 const {Router} = require("express");
-const { userData, signupData, signing, profile, logout, signup } = require("../controllers/user.controller");
+const { userData, signupData, signing, profile, logout, signup, forget, reset } = require("../controllers/user.controller");
 const passport = require("passport");
 const accessAuth = require("../middlewares/accessAuth");
 
@@ -14,6 +14,10 @@ u_router.post("/signing", passport.authenticate('local', {successRedirect:"/dash
 u_router.get("/profile", profile);
 
 u_router.get("/logout", logout);
+
+u_router.get("/forget", forget)
+
+u_router.post("/reset", reset)
 
 
 

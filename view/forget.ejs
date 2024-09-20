@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Password</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="signup-container">
+    <form class="signup-form" action="/user/reset" method="post">
+      <h2 class="">Reset Password</h2>
+      <!-- <input type="text" placeholder="Username" required name="username"> -->
+      <input type="email" placeholder="email" required name="email">
+      <input type="text" placeholder="Password" required name="password">
+      <input type="text" placeholder="New Password" required name="newpassword">
+      <!-- <input type="number" placeholder="Number" required name="number"> -->
+      <button type="submit">Reset</button>
+    </form>
+  </div>
+</body>
+
+</html>
