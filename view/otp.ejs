@@ -4,21 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reset Password</title>
+  <title>getting otp</title>
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 
 <body>
   <div class="signup-container">
-    <form class="signup-form" action="/user/reset" method="post">
-      <h2 class="">Reset Password</h2>
+    <form class="signup-form" action="/user/otp" method="post">
+      <h2 class="">Get Otp</h2>
       <!-- <input type="text" placeholder="Username" required name="username"> -->
       <input type="email" placeholder="email" required name="email">
-      <input type="text" placeholder="OTP" required name="addotp">
-      <input type="text" placeholder="New Password" required name="newpassword">
-      <!-- <input type="number" placeholder="Number" required name="number"> -->
-      <button type="submit">Reset</button>
+      <button type="submit">Send</button>
     </form>
   </div>
 </body>

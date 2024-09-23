@@ -1,5 +1,5 @@
 const {Router} = require("express");
-const { userData, signupData, signing, profile, logout, signup, forget, reset } = require("../controllers/user.controller");
+const { userData, signupData, signing, profile, logout, signup, forget, reset, otpPage, otpSend } = require("../controllers/user.controller");
 const passport = require("passport");
 const accessAuth = require("../middlewares/accessAuth");
 
@@ -16,6 +16,10 @@ u_router.get("/profile", profile);
 u_router.get("/logout", logout);
 
 u_router.get("/forget", forget)
+
+u_router.get("/otp", otpPage)
+
+u_router.post("/otp", otpSend)
 
 u_router.post("/reset", reset)
 

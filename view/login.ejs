@@ -7,9 +7,14 @@
   <title>Sign Up</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
+
+<div class="border p-5 shadow rounded position-fixed end-0 m-4" style="width:400px"><%= info[0] %></div>
+
+
   <div class="signup-container">
     <form class="signup-form" action="/user/signing" method="post">
       <h2 class="">Sign Up</h2>
@@ -17,7 +22,7 @@
       <input type="text" placeholder="username" required name="username">
       <input type="password" placeholder="Password" required name="password">
       <!-- <input type="number" placeholder="Number" required name="number"> -->
-       <a href="/user/forget">forget password</a>
+       <a href="/user/otp">forget password</a>
       <button type="submit">Sign Up</button>
     </form>
   </div>

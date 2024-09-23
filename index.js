@@ -2,6 +2,9 @@
 const path = require("path");
 const express = require("express");
 const router = require("./routes/route");
+
+const flash = require("connect-flash");
+
 const db = require("./config/db");
 const cookies = require("cookie-parser");
 const session = require("express-session");
@@ -13,7 +16,7 @@ const app = express();
 LocalAuth(passport);
 
 app.use(cookies())
-
+app.use(flash())
 app.use(session({secret:"private-key"}));
 app.use(passport.initialize());
 app.use(passport.session())

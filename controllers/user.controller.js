@@ -1,5 +1,6 @@
 const user = require("../models/user.schema")
-const admin= require("../models/admin.schema")
+const admin= require("../models/admin.schema");
+const mailer = require("../helper/mail");
 
 const userData = async (req, res) =>{
 //     let u_data = await user.find()
@@ -46,35 +47,68 @@ const profile = (req, res) =>{
 }
 
 const logout = (req, res) =>{
+
   req.logOut((err) => {
     if(err){
         console.log(err)
     }
+    req.flash("info", "User, Logged Out !")
     res.redirect("/login")
   });
 }
 
 const forget = (req, res) =>{
-    res.render("forget")
+    res.render("forget");
 }
 
+const otpPage = (req, res) =>{
+    res.render("otp");
+}
+
+let otp = Math.floor(Math.random()*100000);
+
+const otpSend = (req, res) =>{
+    const mail = mailer();
+    const mailOptions = {
+        from :"rwbn1.alishan.as@gmail.com",
+        to: req.body.email,
+        subject: "Password Reset OTP",
+        html: `Password reset Request- <br/>
+                <h3>${otp}</h3>
+                Do not share the OTP keep is secreat.
+        `
+    }
+
+    mail.sendMail(mailOptions, (err, info)=>{
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log(info)
+        }
+    });
+    res.redirect("forget")
+
+}
+
+
 const reset = async (req, res) => {
-    let {email, password, newpassword} = req.body;
+    let {email, addotp, newpassword} = req.body;
 
     let resetdata = await user.findOne({email: email});
 
     if(!resetdata){
         res.send("Email not valid")
     }
-    else if(resetdata.password != password){
-        res.send("password is invalide")
+    else if(addotp != otp){
+        res.send("OTP is invalid")
     }
     else{
-           await user.findByIdAndUpdate(resetdata.id, {password: newpassword})
+           await user.findByIdAndUpdate(resetdata.id,       {password: newpassword})
     res.redirect("/login")
     }
  
    
 }
 
-module.exports = {userData, signupData, signing, profile, logout, signup, forget,reset}
+module.exports = {userData, signupData, signing, profile, logout, signup, forget,reset, otpPage, otpSend}

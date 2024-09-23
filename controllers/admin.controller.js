@@ -12,7 +12,8 @@ const home = async (req, res)=>{
 }
 
 const login = (req, res) => {
-    res.render("login");
+
+    res.render("login", {info: req.flash('info')});
 }
 
 const signing = async (req, res) => {

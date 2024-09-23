@@ -2,6 +2,7 @@
   "dependencies": {
     "alert": "^6.0.2",
     "bootstrap": "^5.3.3",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
@@ -10,6 +11,7 @@
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.2",
     "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.15",
     "nodemon": "^3.1.4",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0"
