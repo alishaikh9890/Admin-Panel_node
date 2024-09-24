@@ -33,6 +33,8 @@ const signing = async (req, res) => {
 
 
         console.log(data);
+
+        req.flash("info", "User Successfully Logged In")
         // return res.send("logged in")
         return res.redirect("dashboard")
 }
@@ -103,7 +105,8 @@ const dash = async (req, res) =>{
     
    await admin.find({}).then((data) => {
         res.render("dashboard",{
-        userData : data
+        userData : data,
+        info:req.flash('info')
      })
    })
 }

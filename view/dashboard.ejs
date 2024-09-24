@@ -7,8 +7,38 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      setTimeout(()=>{
+        window.location.reload()
+    
+      }, 2000)
+    </script>
 </head>
 <body>
+
+
+    <%
+    if(info[0]){
+      %>
+        
+          <div style="width:300px" class="alert position-fixed top-0 end-0 m-4 alert-info border-0 shadow alert-dismissible fade show" role="alert">
+           <%= info[0] %>
+            <button type="button" class="btn-close btn" data-bs-dismiss="alert" aria-label="Close"></button>
+            <!-- <div class="w-100 bg-info p-1 position-absolute start-0 bottom-0"></div> -->
+          </div>
+    
+        <%
+    }
+    else{
+      %>
+      <div></div>
+      <%
+    }
+    %>
+  
     
     <div class="container-fluid d-flex">
 

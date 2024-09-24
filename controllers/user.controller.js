@@ -62,7 +62,8 @@ const forget = (req, res) =>{
 }
 
 const otpPage = (req, res) =>{
-    res.render("otp");
+    req.flash("info", "Enter Register Email to Get OTP")
+    res.render("otp",{info:req.flash('info')});
 }
 
 let otp = Math.floor(Math.random()*100000);

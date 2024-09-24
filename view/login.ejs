@@ -8,11 +8,38 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <script src="../js/bootstrap.bundle.min.js"></script>
+
+<script>
+  setTimeout(()=>{
+    window.location.reload()
+
+  }, 2000)
+</script>
 </head>
 
 <body>
 
-<div class="border p-5 shadow rounded position-fixed end-0 m-4" style="width:400px"><%= info[0] %></div>
+  <%
+  if(info[0]){
+    %>
+      
+    <div style="width:300px" class="alert position-fixed top-0 end-0 m-4 alert-info border-0 shadow alert-dismissible fade show" role="alert">
+         <%= info[0] %>
+          <button type="button" class="btn-close btn" data-bs-dismiss="alert" aria-label="Close"></button>
+          <div class="w-100 bg-info p-1 position-absolute start-0 bottom-0"></div>
+        </div>
+  
+      <%
+  }
+  else{
+    %>
+    <div></div>
+    <%
+  }
+  %>
+
+
+  
 
 
   <div class="signup-container">
@@ -27,5 +54,6 @@
     </form>
   </div>
 </body>
+
 
 </html>
