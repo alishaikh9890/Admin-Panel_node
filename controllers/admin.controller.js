@@ -23,7 +23,8 @@ const signing = async (req, res) => {
 
     let data = await admin.findOne({email:email})
         if(!data){
-            return res.send("invalid email")
+            return res.send("invalid email");
+            
         }
 
         if(data.password != password){
@@ -63,6 +64,7 @@ const addUser = async(req, res) =>{
                                 password : password, 
                                 pic : pic,
                             }).then(() => {
+                                req.flash("info","User Edited !")
                                 res.redirect("dashboard")
                         });     
         }
@@ -76,6 +78,7 @@ const addUser = async(req, res) =>{
                     password : password,
                     pic  : old.pic
                 }).then(() => {
+                    req.flash("info","User Edited !")
                     res.redirect("dashboard")
             });     
             })
@@ -91,6 +94,7 @@ const addUser = async(req, res) =>{
             password : password,
             pic : pic
         }).then(() => {
+            req.flash("info","User Added !")
                 res.redirect("dashboard")
         });        
     }
@@ -106,7 +110,7 @@ const dash = async (req, res) =>{
    await admin.find({}).then((data) => {
         res.render("dashboard",{
         userData : data,
-        info:req.flash('info')
+        info:req.flash('info'),
      })
    })
 }
@@ -120,6 +124,7 @@ const delUser = async(req,res) => {
     })
 
     await admin.findByIdAndDelete(id).then((data) => {
+        req.flash("info","User Deleted !")
         res.redirect("back")
     })
 }

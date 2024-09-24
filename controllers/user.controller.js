@@ -58,7 +58,7 @@ const logout = (req, res) =>{
 }
 
 const forget = (req, res) =>{
-    res.render("forget");
+    res.render("forget",{info:req.flash('info')});
 }
 
 const otpPage = (req, res) =>{
@@ -88,6 +88,7 @@ const otpSend = (req, res) =>{
             console.log(info)
         }
     });
+    req.flash("info","OTP Sent on Registered email")
     res.redirect("forget")
 
 }
@@ -99,13 +100,16 @@ const reset = async (req, res) => {
     let resetdata = await user.findOne({email: email});
 
     if(!resetdata){
-        res.send("Email not valid")
+        res.send("Email not valid");
+      
     }
     else if(addotp != otp){
-        res.send("OTP is invalid")
+        res.send("OTP is invalid");
+        req.flash("info","Otp is invalid")
     }
     else{
            await user.findByIdAndUpdate(resetdata.id,       {password: newpassword})
+           req.flash("info", "Password Reset, Please login again !")
     res.redirect("/login")
     }
  
